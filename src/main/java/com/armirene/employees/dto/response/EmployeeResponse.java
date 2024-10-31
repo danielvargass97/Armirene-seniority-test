@@ -23,4 +23,5 @@ public class EmployeeResponse {
     private Date hireDate;
     private Timestamp registrationTimestamp;
     private Timestamp editTimestamp;
+    private String photo;
 }

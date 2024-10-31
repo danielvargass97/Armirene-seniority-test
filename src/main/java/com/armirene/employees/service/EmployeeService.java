@@ -50,7 +50,7 @@ public class EmployeeService {
         employee.setIdentificationNumber(request.getIdentificationNumber());
         employee.setHireDate(Date.valueOf(request.getStartDate()));
         employee.setArea(request.getArea().getDisplayName());
-        employee.setStatus("Active"); // Asignar estado predeterminado
+        employee.setStatus("Activo"); // Asignar estado predeterminado
         employee.setRegistrationTimestamp(Timestamp.from(zonedDateTime.toInstant())); // Registrar fecha y hora
         employee.setEmployeePhoto(request.getPhoto());
 
@@ -122,7 +122,8 @@ public class EmployeeService {
                 employee.getStatus(),
                 employee.getHireDate(),
                 employee.getRegistrationTimestamp(),
-                employee.getEditTimestamp()
+                employee.getEditTimestamp(),
+                employee.getEmployeePhoto()
         );
     }
 
@@ -142,7 +143,7 @@ public class EmployeeService {
         }
         Employee employee = OptionalEmployee.get();
         // Verificar cambios en el nombre y apellidos
-        boolean nameChanged = !employee.getFirstName().equals(editRequest.getFirstName()) ||
+        boolean needNewEmail = !employee.getFirstName().equals(editRequest.getFirstName()) ||
                 !employee.getLastName().equals(editRequest.getLastName()) ||
                 !employee.getEmploymentCountry().equals(editRequest.getCountry().getDisplayName());
 
@@ -158,7 +159,7 @@ public class EmployeeService {
         employee.setEmployeePhoto(editRequest.getPhoto());
 
         // Solo generar un nuevo correo si hay un cambio en los nombres o apellidos
-        if (nameChanged) {
+        if (needNewEmail) {
             employee.setEmail(generateEmail(employee));
         } else {
             // Conservar el correo actual si no hubo cambios en el nombre y apellido

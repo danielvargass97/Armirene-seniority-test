@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum Country {
     COLOMBIA("Colombia"),
+    VENEZUELA("Venezuela"),
     ESTADOS_UNIDOS("Estados Unidos");
 
     private final String displayName;

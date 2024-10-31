@@ -45,7 +45,6 @@ public class EditEmployeeRequest {
     private WorkArea area;
 
     @NotNull(message = "La foto del empleado es requerida")
-    @Pattern(regexp = "^data:image/([a-zA-Z]*);base64,([^\"]*)$", message = "El formato de la imagen debe ser Base64")
     private String photo;
 }
 
