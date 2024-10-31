@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "0d8f0a54-52cc-442a-8a0d-1a5ca76a80b3",
+		"name": "Armirene seniority test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33625763",
+		"_collection_link": "https://solar-shadow-564637.postman.co/workspace/Backend-Workspace~ac6bc070-ab7d-4e30-898f-1385cb2a1035/collection/33625763-0d8f0a54-52cc-442a-8a0d-1a5ca76a80b3?action=share&source=collection_link&creator=33625763"
+	},
+	"item": [
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Register employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\": \"BERNAL\",\n    \"secondLastName\": \"VANEGAS\",\n    \"firstName\": \"MARIA\",\n    \"secondName\": \"HELENA\",\n    \"country\": \"VENEZUELA\",\n    \"identificationType\": \"CEDULA_DE_CIUDADANIA\",\n    \"identificationNumber\": \"52622219\",\n    \"startDate\": \"2024-09-30\",\n    \"area\": \"FINANCIERA\",\n    \"photo\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD/4QBaRXhpZgAATU0AKgAAAAgA...\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/employees/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Consult employees",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/employees?status=Activo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "DANIEL",
+									"disabled": true
+								},
+								{
+									"key": "middleNames",
+									"value": "SANTIAGO",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "DE LA CALLE",
+									"disabled": true
+								},
+								{
+									"key": "secondLastName",
+									"value": "GOMEZ",
+									"disabled": true
+								},
+								{
+									"key": "identificationType",
+									"value": "Cédula de ciudadanía",
+									"disabled": true
+								},
+								{
+									"key": "identificationNumber",
+									"value": "1233892770",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "daniel.vargas@tuarmi.com.co",
+									"disabled": true
+								},
+								{
+									"key": "employmentCountry",
+									"value": "Colombia",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "Activo"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8080/employees/search?firstName=Juan&middleNames=Carlos&lastName=Perez&secondLastName=Gomez&identificationType=Cedula&identificationNumber=123456789&employmentCountry=Colombia&email=juan.perez@tuarmi.com.co&status=Active&page=0&size=10\" -H \"Content-Type: application/json\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/employees/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"DANIEL\",\n    \"middleNames\": null,\n    \"lastName\": \"VARGAS\",\n    \"secondLastName\": \"ORDONEZ\",\n    \"identificationType\": \"CEDULA_DE_EXTRANJERIA\",\n    \"identificationNumber\": \"1233892770\",\n    \"country\": \"ESTADOS_UNIDOS\",\n    \"area\": \"OPERACION\",\n    \"photo\": \"data:image/jpeg;base64,<base64_de_la_imagen>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employees/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://localhost:8080/employees/<id_del_empleado> \\\n-H \"Content-Type: application/json\" \\\n-d '{\n    \"firstName\": \"Daniel\",\n    \"middleNames\": \"A.\",\n    \"lastName\": \"Vargas\",\n    \"secondLastName\": \"González\",\n    \"identificationType\": \"DNI\",\n    \"identificationNumber\": \"12345678\",\n    \"employmentCountry\": \"Colombia\",\n    \"email\": \"daniel.vargas@email.com\",  // Este campo se generará automáticamente si cambia el nombre o apellido\n    \"area\": \"Development\",\n    \"photo\": \"data:image/jpeg;base64,<base64_de_la_imagen>\"\n}'\n"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
