@@ -1,15 +1,13 @@
 # Armirene-seniority-test
-
 # Guía de Instalación
 
 Sigue estos pasos para configurar y ejecutar el proyecto:
 
-1. [Instalar PostgreSQL e importar la base de datos](#instalar-postgresql-e-importar-la-base-de-datos)
-2. Clonar el repositorio del backend e instalar las dependencias.
-3. Configurar el archivo de propiedades para la conexión a la base de datos.
-4. Ejecutar el backend y probar los endpoints.
+1. Instalar PostgreSQL e importar la base de datos
+2. Clonar el repositorio del backend y ejecutarlo.
+3. Clonar el repositorio del front y ejecutarlo.
 
-# Instrucciones para Instalar PostgreSQL e Importar la Base de Datos
+# 1. Instrucciones para Instalar PostgreSQL e Importar la Base de Datos
 
 ## Instalación de PostgreSQL
 
@@ -30,7 +28,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto:
 ## Importar la Base de Datos
 
 1. **Colocar el Archivo de Respaldo**:
-   - Asegúrate de que el archivo de respaldo de la base de datos (`employees_backup.sql`) esté en una ubicación accesible. Por ejemplo, puedes colocarlo en tu carpeta de usuario.
+   - Asegúrate de que el archivo de respaldo de la base de datos (`employees_backup.sql`) esté en una ubicación accesible. Este archivo esta en la carpeta raíz de este repositorio.
 
 2. **Abrir la Terminal**:
    - Abre la terminal en tu Mac.
@@ -70,3 +68,28 @@ Sigue estos pasos para configurar y ejecutar el proyecto:
      ```sql
      \dt
      ```
+# 2. Clonar y Ejecutar el Proyecto de Spring Boot
+
+1. **Clonar el repositorio:**
+   Abre la terminal y ejecuta el siguiente comando para clonar el repositorio:
+   ```bash
+   git clone https://github.com/danielvargass97/Armirene-seniority-test.git
+   ```
+2. **Navegar al directorio del proyecto**: Cambia al directorio del proyecto clonado:
+   ```
+   cd <NOMBRE_DEL_DIRECTORIO_DEL_PROYECTO>
+   ```
+3. **Instalar dependencias**: Asegúrate de tener Maven instalado en tu máquina. Luego, ejecuta el siguiente comando para descargar las dependencias del proyecto:
+   ```
+   mvn clean install
+   ```
+4. **Configurar el archivo de propiedades**: Abre el archivo application.properties o application.yml en el directorio src/main/resources y ajusta la configuración de conexión a la base de datos según sea necesario (Si se realiza el numeral anterior no es necesario cambiar nada aqui).
+
+5. **Ejecutar el proyecto**: Inicia la aplicación ejecutando el siguiente comando:
+   ```
+   mvn spring-boot:run
+   ```
+6. **Probar los endpoints**: Una vez que la aplicación esté en ejecución, puedes probar los endpoints utilizando herramientas como Postman o directamente en tu navegador. Hay una colección con las request organizadas en la raíz de este proyecto. (Armirene seniority test.postman_collection.json)
+
+# 3. Clonar y Ejecutar el Proyecto de Flutter
+Sigue las instrucciones en el readme de este repositorio https://github.com/ARMIRENE-Daniel-Vargas/rrhh-app
